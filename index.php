@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8" />
         <title>Insertion de produits</title>
     </head>
     <style type="text/css">
+    *{
+        text-align:center;
+    }
     body{
         text-align:center;
         background-color:#cad3e3;
@@ -18,6 +22,19 @@
     input[type=submit]:hover{
         border: 2px solid #6bbd68;
         background-color: #a0e39d;
+    }
+    .aPropos{
+        padding: 15px;
+
+    }
+    table{
+        border: 1px solid black;
+        margin-top: 15px;
+    
+    }
+    td{
+        border: 1px solid black; 
+        padding: 3px;
     }
     </style>
     <body>
@@ -40,11 +57,9 @@
 		<label for="texte">Autres détails</label> :  <textarea type="text" name="texteDet" id="texteDet" >Entrez les autres détails ici</textarea><br />
         </p>
         <br/>
-        <p>
-        <label for="userid">Code d'utilisateur</label> :  <input type="number" name="userid" id="userid"/><br />
-        </p>
         <br/>
         <input type="submit" value="Envoyer le produit" />
+    
 	
     </form>
 
@@ -59,21 +74,26 @@
         }
 
         $reponse = $bdd->query('SELECT * FROM products');
-
+    echo '<table align="center">';
     while ($donnees = $reponse->fetch())
     {
-        echo '<p><a href="produit_modifier.php?id=' . $donnees['USER_ID'] . '">[modifier]</a> <strong>' . //Revoir les données et adapter pour faire beau
-            htmlspecialchars($donnees['PRODUCT_ID']) . 
-            '</strong> (' . 
-            $donnees['Product_Name'] . ') : <em>' . 
-            htmlspecialchars($donnees['Product_Description']) . '</em>, ' . 
-            htmlspecialchars($donnees['Price']) . 
-            ' (privé : ' . htmlspecialchars($donnees['Other_Details']) . 
-            ')</p>';
-    }
+        echo ' <tr>';
+        
+        echo
+            '<td><a href="produit_modifier.php?PRODUCT_ID=' . $donnees['PRODUCT_ID'] . '">[modifier]</a> <strong></td>'. 
+            '<td><a href="produit_supprimer.php?PRODUCT_ID=' . $donnees['PRODUCT_ID'] . ' "onClick=\'javascript:return confirm("Êtes-vous certain de vouloir supprimer cette donnée?");\'>[supprimer]</a> <strong></td>' ,'<td> Nom du Produit : '. //Revoir les données et adapter pour faire beau
+            '</strong> ' . 
+           '<em>'. $donnees['Product_Name'].'</em> </td>' . '<td> Description : <em>' . 
+            htmlspecialchars($donnees['Product_Description']) . '</em> , </td><td>' . 
+            htmlspecialchars($donnees['Price']) ,'<em> $</em></td>' . 
+            '<td> (Autre détails : ' . htmlspecialchars($donnees['Other_Details']) . 
+            ')</td></th>';
+        echo '</tr>';
+        }
+    echo '</table>';
 
     $reponse->closeCursor();
     ?>
-
+    <div class="aPropos"><a href="apropos.html">à propos</a></div>
     </body>
 </html>

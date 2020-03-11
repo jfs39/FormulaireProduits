@@ -6,14 +6,14 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 // Insertion du commentaire à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);'); 
-$req->execute(array($_POST['nomProd'], $_POST['texteDesc'], $_POST['prix'], $_POST['texteDet'], 1));     // TODO remettre $_POST à la place du 1 quand je vais vouloir gérer les user
+$req = $bdd->prepare('DELETE FROM products WHERE PRODUCT_ID=?;'); 
+$req->execute([$_GET['PRODUCT_ID']]); 
 
 header('Location: index.php');
 ?>
 <html>
     <body>
-		<h2>Envoyer un produit V0.0.1</h2>
+		<h2>Supprimer un produit V0.0.3</h2>
 	     *** Pour déboguage ***<br />
 		Voici le contenu de $_POST envoyé par le formulaire d'envoi et transmis à la requête : <br />
         <?php var_dump($_POST); ?>
