@@ -3,66 +3,38 @@
 
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Insertion de produits</title>
     </head>
-    <style type="text/css">
-    *{
-        text-align:center;
-    }
-    body{
-        text-align:center;
-        background-color:#cad3e3;
-    }
-    input[type=submit]{
-        width:400px;
-        height:50px;
-        border: 2px solid black;
-        background-color: #e4f5e4;
-    }
-    input[type=submit]:hover{
-        border: 2px solid #6bbd68;
-        background-color: #a0e39d;
-    }
-    .aPropos{
-        padding: 15px;
-
-    }
-    table{
-        border: 1px solid black;
-        margin-top: 15px;
-    
-    }
-    td{
-        border: 1px solid black; 
-        padding: 3px;
-    }
-    </style>
     <body>
-    <form action="produit_envoyer.php" method="post">
-		<h1>Ajouter un produit v0.0.2</h1>
-        <br/>
-        <p>
-        <label for="nomProd">Nom du produit</label> : <input type="text" name="nomProd" id="nomProd" /><br />
-        </p>
-        <br/>
-        <p>
-        <label for="texte">Description du produit</label> :  <textarea type="text" name="texteDesc" id="texteDesc" >Entrez la description du produit ici</textarea><br />
-        </p>
-        <br/>
-        <p>
-        <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix"/><br />
-        </p>
-        <br/>
-        <p>
-		<label for="texte">Autres détails</label> :  <textarea type="text" name="texteDet" id="texteDet" >Entrez les autres détails ici</textarea><br />
-        </p>
-        <br/>
-        <br/>
-        <input type="submit" value="Envoyer le produit" />
-    
-	
-    </form>
-
+    <div class="principal">
+        <form action="produit_envoyer.php" method="post" >
+            <div id="contenuInput">
+                <h1>Ajouter un produit v0.0.5</h1>
+                <br/>
+                <p>
+                <label for="nomProd">Nom du produit</label> : <input type="text" name="nomProd" id="nomProd" /><br />
+                </p>
+                <br/>
+                <p>
+                <label for="texte">Description du produit</label> :  <textarea type="text" name="texteDesc" id="texteDesc" >Entrez la description du produit ici</textarea><br />
+                </p>
+                <br/>
+                <p>
+                <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix"/><br />
+                </p>
+                <br/>
+                <p>
+                <label for="texte">Autres détails</label> :  <textarea type="text" name="texteDet" id="texteDet" >Entrez les autres détails ici</textarea><br />
+                </p>
+                <br/>
+                <br/>
+            </div>
+            <input type="submit" value="Envoyer le produit" />
+        
+        
+        </form>
+    </div>
     <?php
         try
         {

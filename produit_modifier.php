@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Modifier un Produit V0.0.3</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <style>
         form
@@ -42,6 +43,7 @@
                 <input type="hidden" name="PRODUCT_ID" value="<?php echo $donnees['PRODUCT_ID']; ?>"/>
                 <input type="submit" value="Modifier" />
                 <input type="button" value="Annuler" onclick="history.back();"/>
+                
             </p>
         </form>
     </body>
