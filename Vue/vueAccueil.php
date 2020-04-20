@@ -8,6 +8,7 @@
                 <br/>
                 <p>
                 <label for="nomProd">Nom du produit</label> : <input type="text" name="nomProd" id="nomProd" onkeyup="gerer()"/><br />
+                <?= ($erreur == 'nom') ? '<span style="color : red;">Entrez un nom de produit valide s.v.p.</span>' : '' ?>
                 </p>
                 <br/>
                 <p>
@@ -24,7 +25,7 @@
                 <br/>
                 <br/>
             </div>
-            <input type="submit" value="Envoyer le produit" id="submit" disabled/>
+            <input type="submit" value="Envoyer le produit" id="submit" />
         
         </form>
     </div>
@@ -58,8 +59,9 @@
      afficherProduits();
     ?>
         </body>
+
     <script type="text/javascript">
-    function gerer(){
+   /* function gerer(){
         var bouton = document.getElementById('submit');
         var texte = document.getElementById('nomProd');
         var prix = document.getElementById('prix');
@@ -70,6 +72,6 @@
             bouton.disabled = true;
         }
 
-    }
+    }*/
     </script>
     <?php require 'Vue/gabarit.php'; ?>
