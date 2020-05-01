@@ -31,7 +31,7 @@
     </div>
 
     <?php
-    include_once 'Controlleur/Controleur.php';
+    include_once 'Controleur/ControlleurProduit.php';
     function afficherProduits(){
 
         $produits = getProduits();
