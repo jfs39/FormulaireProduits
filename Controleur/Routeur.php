@@ -19,16 +19,13 @@ class Routeur {
     try {
       if(isset($_GET['action'])){
         if ($_GET['action'] == 'ajouter') {
-
-
+          
           $produit_id = intval($this->getParametre($_POST, 'PRODUCT_ID'));
-
-        }
-
-        else {  // aucune action définie : affichage de l'accueil
-         $this->ctrlAccueil->accueil();
-      }
-    }
+        } 
+        
+    } else {  // aucune action définie : affichage de l'accueil
+      $this->ctrlAccueil->accueil();
+   }
 
   }catch (Exception $e) {
     echo($e->getMessage());

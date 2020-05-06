@@ -7,7 +7,6 @@ class ControlleurProduit {
 
   private $produit;
 
-
   public function __construct() {
     $this->produit = new Produit();
 
