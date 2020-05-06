@@ -15,6 +15,6 @@ class ControlleurAccueil {
     public function accueil() {
       $produits = $this->produit->getProduits();
       $vue = new Vue("Accueil");
-      $vue->generer(array('produits' => $produits));
+      $vue->generer(array('produits' => $produits,'erreur'=>'aucun'));
     }
   }

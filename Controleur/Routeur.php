@@ -20,9 +20,9 @@ class Routeur {
       if(isset($_GET['action'])){
         if ($_GET['action'] == 'ajouter') {
           
-          $produit_id = intval($this->getParametre($_POST, 'PRODUCT_ID'));
+          $produit_id = intval($this->ctrlProduit->ajouterProduit($_POST));
         } 
-        
+
     } else {  // aucune action définie : affichage de l'accueil
       $this->ctrlAccueil->accueil();
    }

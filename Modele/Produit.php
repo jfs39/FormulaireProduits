@@ -11,10 +11,9 @@ public function getProduits() {
 }
 //Méthode pour obetnir UN seul produit par son ID de la BDD.
 public function getProduit($id) {
-    $bdd = obtenirBdd();
-    $produit = $bdd->prepare('select * from products'
-            . ' where PRODUCT_ID=?');
-    $produit->execute(array($id));
+    $sql = 'select * from products'
+    . ' where PRODUCT_ID=?';
+    $produit = $this->executerRequete($sql,array($id));
     if ($produit->rowCount() == 1)
         return $produit->fetch();  // Accès à la première ligne de résultat
     else
@@ -24,9 +23,8 @@ public function getProduit($id) {
 //Méthode pour ajouter des produits à ma BDD
 public function setProduit($produit) {
 
-    $bdd = obtenirBdd();
-    $req = $bdd->prepare('INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);'); 
-    $req->execute(array($produit[nomProd], $produit[texteDesc], $produit[prix], $produit[texteDet], 1)); 
+    $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
+    $produit = $this->executerRequete($sql,array($produit['nomProd'], $produit['texteDesc'], $produit['prix'], $produit['texteDet'], 1));
 
 }
 
