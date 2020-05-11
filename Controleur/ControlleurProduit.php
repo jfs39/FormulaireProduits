@@ -37,13 +37,15 @@ class ControlleurProduit {
 }
 
   public function supprimerUnProduit($id){
-      deleteProduit($id);
-      header('Location: index.php');
+      $this->produit->deleteProduit($id);
+      $vue = new Vue("Accueil");
+      $vue->generer(array('produits' => $produits));
     }
 
     public function confirmer($id) {
-      $produit = getProduit($id);
-      require 'Vue/vueSupprimer.php';
+      $this->produit->getProduit($id);
+      $vue = new Vue("Accueil");
+      $vue->generer(array('produits' => $produits));
   }
 
   public function modifierUnProduit($id, $produit){

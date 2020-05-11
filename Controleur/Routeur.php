@@ -24,6 +24,10 @@ class Routeur {
         } else if ($_GET['action'] == 'confirmerModifier') {
           
           $produit_id = intval($this->ctrlProduit->confirmerModifier($_POST));
+
+        } else if ($_GET['action'] == 'confirmer') {
+          
+          $produit_id = intval($this->ctrlProduit->confirmer($_POST));
         }
 
     } else {  // aucune action définie : affichage de l'accueil
