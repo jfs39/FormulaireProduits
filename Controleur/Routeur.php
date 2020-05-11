@@ -21,7 +21,10 @@ class Routeur {
         if ($_GET['action'] == 'ajouter') {
           
           $produit_id = intval($this->ctrlProduit->ajouterProduit($_POST));
-        } 
+        } else if ($_GET['action'] == 'confirmerModifier') {
+          
+          $produit_id = intval($this->ctrlProduit->confirmerModifier($_POST));
+        }
 
     } else {  // aucune action définie : affichage de l'accueil
       $this->ctrlAccueil->accueil();

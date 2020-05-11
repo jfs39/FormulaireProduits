@@ -9,7 +9,6 @@ class ControlleurProduit {
 
   public function __construct() {
     $this->produit = new Produit();
-
   }
 
   // Affiche les détails sur un billet
@@ -17,26 +16,29 @@ class ControlleurProduit {
     $produit = $this->produit->getProduit($idProduit);
     $vue = new Vue("Accueil");
     $vue->generer(array('produit' => $produit));
+
   }
 
   public function ajouterProduit($produit){
     $validation_ajout = !filter_var($produit['nomProd'], FILTER_VALIDATE_INT);
     $vue = new Vue("Accueil");
-    $produits =$this->produit->getProduits();
+    $produits = $this->produit->getProduits();
+
     if($validation_ajout && $produit['nomProd'] != '' ){
+
         $this->produit->setProduit($produit);
         $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
 
     } else {
+
         $vue->generer(array('produits' => $produits,'erreur' => 'nom'));
-       
     }
 
 }
 
   public function supprimerUnProduit($id){
-    deleteProduit($id);
-    header('Location: index.php');
+      deleteProduit($id);
+      header('Location: index.php');
     }
 
     public function confirmer($id) {
@@ -45,17 +47,19 @@ class ControlleurProduit {
   }
 
   public function modifierUnProduit($id, $produit){
-    modifierProduit($id, $produit);
-    header('Location: index.php');
+      modifierProduit($id, $produit);
+      header('Location: index.php');
     }
 
    public function confirmerModifier($id){
-      $produit = getProduit($id);
-      require 'Vue/vueModifier.php';
+      $produit = $this->produit->getProduit($id);
+      $vue = new Vue("Modifier");
+      $vue->generer(array('produit' => $id));  
   }
 
-  public function accueil() {
-    $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
-    require 'Vue/vueAccueil.php';
-}
+    public function accueil() {
+      $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
+      $vue = new Vue("Accueil");
+      $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+  }
 }

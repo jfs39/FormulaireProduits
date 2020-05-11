@@ -6,7 +6,8 @@
         }
     </style>
     <body>
-    <form action="index.php?action=modifier&PRODUCT_ID=<?=$produit['PRODUCT_ID']?>" method="post">
+  <!--  &PRODUCT_ID=<?=$produit['PRODUCT_ID']?>-->
+    <form action="index.php?action=modifier" method="post">
         <div class="principal">
 			<h2>Modifier un Produit V0.0.3</h2>
             <p>
@@ -29,4 +30,3 @@
             </div>
         </form>
     </body>
-    <?php require 'Vue/gabarit.php'; ?>

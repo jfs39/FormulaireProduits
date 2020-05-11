@@ -30,10 +30,9 @@ public function setProduit($produit) {
 
 //Méthode pour modifier un produit de ma BDD
 public function modifierProduit($id, $produit) {
-    $bdd = obtenirBdd();
     
-    $req = $bdd->prepare('UPDATE products SET Product_Name = ?, Product_Description = ?, Price = ?, Other_Details = ? WHERE PRODUCT_ID = ?');
-    $req->execute(array($produit[nomProd], $produit[texteDesc], $produit[prix], $produit[texteDet], $id));
+    $sql='UPDATE products SET Product_Name = ?, Product_Description = ?, Price = ?, Other_Details = ? WHERE PRODUCT_ID = ?';
+    $produit = $this->executerRequete($sql,array($produit[nomProd], $produit[texteDesc], $produit[prix], $produit[texteDet], $id));
 }
 
 //Méthode pour enlever des produits de ma BDD

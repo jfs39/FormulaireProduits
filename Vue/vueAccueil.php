@@ -7,7 +7,7 @@
                 <h1>Ajouter un produit v0.1.0</h1>
                 <br/>
                 <p>
-                <label for="nomProd">Nom du produit</label> : <input type="text" name="nomProd" id="nomProd" onkeyup="gerer()"/><br />
+                <label for="nomProd">Nom du produit</label> : <input type="text" name="nomProd" id="nomProd"/><br />
                 <?= ($erreur == 'nom') ? '<span style="color : red;">Entrez un nom de produit valide s.v.p.</span>' : '' ?>
                 </p>
                 <br/>
@@ -16,7 +16,7 @@
                 </p>
                 <br/>
                 <p>
-                <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix" onkeyup="gerer()"/><br />
+                <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix" /><br />
                 </p>
                 <br/>
                 <p>
