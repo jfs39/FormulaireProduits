@@ -36,8 +36,8 @@ class Routeur {
 
         }else if ($_GET['action'] == 'modifier') {
           $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
-          $produitCourant = $this->ctrlProduit->produit($id);
-          $this->ctrlProduit->modifierUnProduit($id,$produitCourant);
+          
+          $this->ctrlProduit->modifierUnProduit($id,$_POST);
         }
 
     } else {  // aucune action définie : affichage de l'accueil
