@@ -7,7 +7,7 @@
     </style>
     <body>
   <!--  &PRODUCT_ID=<?=$produit['PRODUCT_ID']?>-->
-    <form action="index.php?action=modifier" method="post">
+    <form action="index.php?action=modifier&PRODUCT_ID=<?=$produit['PRODUCT_ID']?>" method="post">
         <div class="principal">
 			<h2>Modifier un Produit V0.0.3</h2>
             <p>

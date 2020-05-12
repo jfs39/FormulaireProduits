@@ -11,17 +11,19 @@ class ControlleurProduit {
     $this->produit = new Produit();
   }
 
-  // Affiche les détails sur un billet
+ 
   public function produit($idProduit) {
     $produit = $this->produit->getProduit($idProduit);
-    $vue = new Vue("Accueil");
-    $vue->generer(array('produit' => $produit));
+   // $vue = new Vue("Accueil");
+  //  $vue->generer(array('produit' => $produit));
+    return $produit;
 
   }
 
   public function ajouterProduit($produit){
-    $validation_ajout = !filter_var($produit['nomProd'], FILTER_VALIDATE_INT);
-    $vue = new Vue("Accueil");
+    
+    $validation_ajout = !filter_var( $produit['nomProd'], FILTER_VALIDATE_INT);
+    $vue = new Vue("Ajouter");
     $produits = $this->produit->getProduits();
 
     if($validation_ajout && $produit['nomProd'] != '' ){
@@ -39,24 +41,30 @@ class ControlleurProduit {
   public function supprimerUnProduit($id){
       $this->produit->deleteProduit($id);
       $vue = new Vue("Accueil");
+      $produits = $this->produit->getProduits();
       $vue->generer(array('produits' => $produits));
+      
     }
 
     public function confirmer($id) {
-      $this->produit->getProduit($id);
-      $vue = new Vue("Accueil");
-      $vue->generer(array('produits' => $produits));
+
+     $produit= $this->produit->getProduit($id);
+      $vue = new Vue("Supprimer");
+      $vue->generer(array('produit' => $produit));
   }
 
   public function modifierUnProduit($id, $produit){
-      modifierProduit($id, $produit);
-      header('Location: index.php');
+      $this->produit->modifierProduit($id, $produit);
+      $vue = new Vue("Accueil");
+      $produits = $this->produit->getProduits();
+      $vue->generer(array('produits' => $produits));
+      
     }
 
    public function confirmerModifier($id){
       $produit = $this->produit->getProduit($id);
       $vue = new Vue("Modifier");
-      $vue->generer(array('produit' => $id));  
+      $vue->generer(array('produit' => $produit));  
   }
 
     public function accueil() {

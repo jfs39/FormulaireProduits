@@ -23,4 +23,4 @@
         
         </form>
     </div>
-    <?php require 'Vue/gabarit.php'; ?>
+

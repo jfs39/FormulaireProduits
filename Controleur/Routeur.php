@@ -21,13 +21,23 @@ class Routeur {
         if ($_GET['action'] == 'ajouter') {
           
           $produit_id = intval($this->ctrlProduit->ajouterProduit($_POST));
+
         } else if ($_GET['action'] == 'confirmerModifier') {
-          
-          $produit_id = intval($this->ctrlProduit->confirmerModifier($_POST));
+          $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
+          $this->ctrlProduit->confirmerModifier($id);
 
         } else if ($_GET['action'] == 'confirmer') {
-          
-          $produit_id = intval($this->ctrlProduit->confirmer($_POST));
+          $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
+          $this->ctrlProduit->confirmer($id);
+
+        }else if ($_GET['action'] == 'supprimer') {
+          $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
+          $this->ctrlProduit->supprimerUnProduit($id);
+
+        }else if ($_GET['action'] == 'modifier') {
+          $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
+          $produitCourant = $this->ctrlProduit->produit($id);
+          $this->ctrlProduit->modifierUnProduit($id,$produitCourant);
         }
 
     } else {  // aucune action définie : affichage de l'accueil
@@ -44,4 +54,11 @@ class Routeur {
   //  $vue = new Vue("Erreur");
   //  $vue->generer(array('msgErreur' => $msgErreur));
   }
+
+  private function getParametre($tableau, $nom) {
+    if (isset($tableau[$nom])) {
+        return $tableau[$nom];
+    } else
+        throw new Exception("Paramètre '$nom' absent");
+}
 }

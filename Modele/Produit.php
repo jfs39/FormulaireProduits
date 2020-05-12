@@ -32,14 +32,14 @@ public function setProduit($produit) {
 public function modifierProduit($id, $produit) {
 
     $sql='UPDATE products SET Product_Name = ?, Product_Description = ?, Price = ?, Other_Details = ? WHERE PRODUCT_ID = ?';
-    $produit = $this->executerRequete($sql,array($produit[nomProd], $produit[texteDesc], $produit[prix], $produit[texteDet], $id));
+    $produit = $this->executerRequete($sql,array($produit['nomProd'], $produit['texteDesc'], $produit['prix'], $produit['texteDet'], $id));
 }
 
 //Méthode pour enlever des produits de ma BDD
 public function deleteProduit($id) {
-    $sql= 'DELETE FROM products'.' WHERE PRODUCT_ID = ?';
-    $result = $this->executerRequete($sql,$id);
-    return $result;
+    $sql= 'DELETE FROM products WHERE PRODUCT_ID = ?';
+    $result = $this->executerRequete($sql,array($id));
+    
 }
 
 
