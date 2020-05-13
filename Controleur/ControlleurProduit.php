@@ -29,7 +29,7 @@ class ControlleurProduit {
     if($validation_ajout && $produit['nomProd'] != '' ){
 
         $this->produit->setProduit($produit);
-        $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+        $vue->generer(array('produits' => $produits,'erreur'=> 'succes'));
 
     } else {
 
@@ -37,6 +37,14 @@ class ControlleurProduit {
     }
 
 }
+
+  public function ajoutDeProduit(){
+  $vue = new Vue("Ajouter");
+  $produits = $this->produit->getProduits();
+
+  $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+
+  }
 
   public function supprimerUnProduit($id){
       $this->produit->deleteProduit($id);

@@ -6,7 +6,7 @@
 
         <br/>
 
-        <a href="index.php?action=ajouter"><button>Ajoutez un produit à la liste</button></a>
+        <a href="index.php?action=ajout"><button>Ajoutez un produit à la liste</button></a>
 
     </div>
 

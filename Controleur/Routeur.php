@@ -38,6 +38,9 @@ class Routeur {
           $id = intval($this->getParametre($_GET, 'PRODUCT_ID'));
           
           $this->ctrlProduit->modifierUnProduit($id,$_POST);
+        } else if ($_GET['action'] == 'ajout') {
+          $this->ctrlProduit->ajoutDeProduit();
+
         }
 
     } else {  // aucune action définie : affichage de l'accueil
