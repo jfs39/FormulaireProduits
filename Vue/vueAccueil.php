@@ -28,4 +28,8 @@
     <?php endforeach; ?>
     
     </table>
+        
+    <br/>
+    <br/>
+    <p><a href="Tests.php">Tests de produits</a></p>
         </body>

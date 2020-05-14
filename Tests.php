@@ -1,12 +1,23 @@
 <?php
+if (isset($_GET['test'])) {
+    if ($_GET['test'] == 'modeleProduit') {
+        require 'Tests/Modeles/testProduit.php';
+    } else if ($_GET['test'] == 'vueErreur') {
+        require 'Tests/Vues/vueErreur.php';
+    }
+}
+require('Vue/gabarit.php')
+?>
+<h3>Tests de Modèles</h3>
+<ul>
+    <li>
+        <a href="tests.php?test=modeleProduit">Produit</a>
+    </li>
+</ul>
+<h3>Tests de Vues</h3>
+<ul>
+    <li>
+        <a href="tests.php?test=vueErreur">Erreur</a>
+    </li>
+</ul>
 
-require_once 'Modele/Modele.php';
-
-$tstBillet = new Billet;
-$billets = $tstBillet->getBillets();
-
-var_dump($billets->rowCount());
-
-$billet = $tstBillet->getBillet(1);
-
-var_dump($billet);
