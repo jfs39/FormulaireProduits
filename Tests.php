@@ -6,8 +6,9 @@ if (isset($_GET['test'])) {
         require 'Tests/Vues/vueErreur.php';
     }
 }
-require('Vue/gabarit.php')
 ?>
+
+
 <h3>Tests de Modèles</h3>
 <ul>
     <li>
