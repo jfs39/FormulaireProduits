@@ -1,5 +1,5 @@
 <?php
-require_once 'Modele/Modele.php';
+require_once 'Framework/Modele.php';
 class Produit extends Modele{
 
 //Méthode pour obtenir TOUS les produits de ma BDD
