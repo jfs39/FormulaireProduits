@@ -3,14 +3,10 @@ require_once 'Configuration.php';
 
 
 class Vue {
-
     
     private $fichier;
 
-    
     private $titre;
-
-
 
     public function __construct($action, $controleur = "") {
 
@@ -35,7 +31,6 @@ class Vue {
 
         echo $vue;
     }
-
 
     private function genererFichier($fichier, $donnees) {
         if (file_exists($fichier)) {

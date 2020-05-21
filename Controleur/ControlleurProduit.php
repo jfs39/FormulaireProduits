@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Modele/Produit.php';
-require_once 'Vue/Vue.php';
+require_once 'Framework/Vue.php';
 
 class ControlleurProduit {
 
