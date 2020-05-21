@@ -4,7 +4,7 @@
     <div id="contenuInput">
         <h1>Ajouter un produit v0.1.0</h1>
         <br/>
-        <a href="produit/ajouter"><button>Ajoutez un produit à la liste</button></a>
+        <a href="index.php?controleur=produit&action=ajout"><button>Ajoutez un produit à la liste</button></a>
 
     </div>
 

@@ -28,6 +28,12 @@ public function setProduit($produit) {
 
 }
 
+public function ajoutProduit($nomProd,$texteDesc,$prix,$texteDet){
+
+    $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
+    $produit = $this->executerRequete($sql,array($nomProd, $texteDesc, $prix, $texteDet, 1));
+}
+
 //Méthode pour modifier un produit de ma BDD
 public function modifierProduit($id, $produit) {
 

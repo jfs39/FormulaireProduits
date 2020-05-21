@@ -1,16 +1,15 @@
 <?php
-
+require_once 'Framework/Controleur.php';
 require_once 'Modele/Produit.php';
 require_once 'Framework/Vue.php';
 
-class ControleurProduit {
+class ControleurProduit extends Controleur{
 
   private $produit;
 
   public function __construct() {
     $this->produit = new Produit();
   }
-
  
   public function produit($idProduit) {
     $produit = $this->produit->getProduit($idProduit);
@@ -38,10 +37,21 @@ class ControleurProduit {
 
 }
 
-  public function ajoutDeProduit(){
-  $vue = new Vue("Ajouter");
-  $produits = $this->produit->getProduits();
+public function ajouter(){
 
+  $nomProd = $this->requete->getParametre("nomProd");
+  $texteDesc = $this->requete->getParametre("texteDesc");
+  $prix = $this->requete->getParametre("prix");
+  $texteDet = $this->requete->getParametre("texteDet");
+  
+  $this->produit->ajoutProduit($nomProd, $texteDesc, $prix, $texteDet);
+ 
+  $this->executerAction("index");
+}
+
+  public function ajoutDeProduit(){
+  $vue = new Vue("vueAjouter");
+  $produits = $this->produit->getProduits();
   $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
 
   }
@@ -79,5 +89,11 @@ class ControleurProduit {
       $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
       $vue = new Vue("Accueil");
       $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+  }
+  public function index(){
+        
+    $produits = $this->produit->getProduits();
+    
+    $this->generer(array('produits' => $produits));
   }
 }
