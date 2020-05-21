@@ -14,9 +14,9 @@ abstract class Modele{
         // Création de la connexion
         self::$bdd = new PDO($dsn, $login, $mdp, 
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
+        }
     return self::$bdd;
-}
+    }
     
     function searchType($term) {
         $conn = getBdd();
@@ -30,7 +30,6 @@ abstract class Modele{
         /* Toss back results as json encoded array. */
         return json_encode($return_arr);
     }
-
     
     protected function executerRequete($sql, $params = null) {
       if ($params == null) {

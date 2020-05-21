@@ -3,7 +3,7 @@
 require_once 'Modele/Produit.php';
 require_once 'Framework/Vue.php';
 
-class ControlleurProduit {
+class ControleurProduit {
 
   private $produit;
 

@@ -1,9 +1,9 @@
 <?php
-
+require_once 'Framework/Controleur.php';
 require_once 'Modele/Produit.php';
 require_once 'Framework/Vue.php';
 
-class ControlleurAccueil {
+class ControleurAccueil extends Controleur{
 
     private $produit;
   
@@ -12,9 +12,8 @@ class ControlleurAccueil {
     }
   
     // Affiche la liste de tous les billets du blog
-    public function accueil() {
+    public function index() {
       $produits = $this->produit->getProduits();
-      $vue = new Vue("Accueil");
-      $vue->generer(array('produits' => $produits,'erreur'=>'aucun'));
+      $this->genererVue(array('produits' => $produits));
     }
   }

@@ -1,6 +1,6 @@
 <?php
 
-
+require_once 'Controleur.php';
 require_once 'Requete.php';
 require_once 'Vue.php';
 
@@ -21,7 +21,6 @@ class Routeur {
       $this->gererErreur($e);
     }
   }
-
   
   private function creerControleur(Requete $requete) {
     $controleur = "Accueil";  
