@@ -56,9 +56,18 @@ public function ajouter(){
 
   }
 
-  public function supprimerUnProduit($id){
+  public function chargerSupprimer(){
+    $id= $this->requete->getParametre("id");
+    $produit= $this->produit->getProduit($id);
+  $vue = new Vue("vueSupprimer");
+  $vue->generer(array('produit'=>$produit));
+
+  }
+
+  public function supprimerUnProduit(){
+    $id= $this->requete->getParametre("id");
       $this->produit->deleteProduit($id);
-      $vue = new Vue("Accueil");
+      $vue = new Vue("Accueil/index");
       $produits = $this->produit->getProduits();
       $vue->generer(array('produits' => $produits));
       
@@ -71,17 +80,20 @@ public function ajouter(){
       $vue->generer(array('produit' => $produit));
   }
 
-  public function modifierUnProduit($id, $produit){
+  public function modifierUnProduit(){
+      $id = $this->requete->getParametre("id");
+      $produit = $_POST;
       $this->produit->modifierProduit($id, $produit);
-      $vue = new Vue("Accueil");
+      $vue = new Vue("Accueil/index");
       $produits = $this->produit->getProduits();
       $vue->generer(array('produits' => $produits));
       
     }
 
-   public function confirmerModifier($id){
+   public function confirmerModifier(){
+     $id = $this->requete->getParametre("id");
       $produit = $this->produit->getProduit($id);
-      $vue = new Vue("Modifier");
+      $vue = new Vue("vueModifier");
       $vue->generer(array('produit' => $produit));  
   }
 
@@ -94,6 +106,6 @@ public function ajouter(){
         
     $produits = $this->produit->getProduits();
     
-    $this->generer(array('produits' => $produits));
+    $this->genererVue(array('produits' => $produits));
   }
 }

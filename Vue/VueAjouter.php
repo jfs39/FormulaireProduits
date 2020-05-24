@@ -1,6 +1,6 @@
 <body>
     <div class="principal">
-            <form action="index.php?controleur=produit&action=ajouter" method="post">
+            <form action="/TP2_MVC_JeanFrancoisSergerie/Produit/Ajouter/" method="post">
                 <div id="contenuInput">
                     <h1>Ajouter un produit v0.1.0</h1>
                     <br/>

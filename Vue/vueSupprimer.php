@@ -1,7 +1,7 @@
 <?php $titre = 'Supprimer un produit'; ?>
     <body>
     <div class="principal">
-        <form action="index.php?action=supprimer&PRODUCT_ID=<?=$produit['PRODUCT_ID']?>" method="post">
+        <form action="/TP2_MVC_JeanFrancoisSergerie/Produit/SupprimerUnProduit/<?=$produit['PRODUCT_ID']?>" method="post">
 
             <div id="contenuInput">
                 <h1>Suprimer un produit v0.1.0</h1>

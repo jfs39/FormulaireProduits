@@ -3,7 +3,7 @@
     <div id="contenuInput">
         <h1>Ajouter un produit v0.1.0</h1>
         <br/>
-        <a href="index.php?controleur=produit&action=ajoutDeProduit"><button>Ajoutez un produit à la liste</button></a>
+        <a href="/TP2_MVC_JeanFrancoisSergerie/Produit/AjoutDeProduit/"><button>Ajoutez un produit à la liste</button></a>
 
     </div>
 
@@ -13,8 +13,8 @@
         
          <tr>
         
-            <td><a href="<?="index.php?action=confirmerModifier&PRODUCT_ID=" .$this->nettoyer($produit['PRODUCT_ID']) ?>" >[modifier]</a> <strong> </td> 
-            <td><a href="<?="index.php?action=confirmer&PRODUCT_ID=" .$this->nettoyer($produit['PRODUCT_ID']) ?>">[supprimer]</a></td>
+            <td><a href="<?="/TP2_MVC_JeanFrancoisSergerie/Produit/confirmerModifier/" .$this->nettoyer($produit['PRODUCT_ID']) ?>" >[modifier]</a> <strong> </td> 
+            <td><a href="<?="/TP2_MVC_JeanFrancoisSergerie/Produit/chargerSupprimer/" .$this->nettoyer($produit['PRODUCT_ID']) ?>">[supprimer]</a></td>
             <strong> <td> Nom du Produit : </strong> <em> <?= $this->nettoyer($produit['Product_Name'])?> </em> </td>
             <td> Description : <em> <?= $this->nettoyer($produit['Product_Description']) ?> </em>  </td>
             <td> <?= $this->nettoyer(($produit['Price'])) ?><em> $</em></td> 
