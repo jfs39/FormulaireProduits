@@ -4,6 +4,7 @@
         <h1>Ajouter un produit v0.1.0</h1>
         <br/>
         <a href="/TP2_MVC_JeanFrancoisSergerie/Produit/AjoutDeProduit/"><button>Ajoutez un produit à la liste</button></a>
+        <a href="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/chargerAjoutCaracteristique/"><button>Ajoutez une caractéristique à la liste</button></a>
 
     </div>
 
