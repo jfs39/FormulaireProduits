@@ -4,7 +4,7 @@
         <form action="/TP2_MVC_JeanFrancoisSergerie/Produit/SupprimerUnProduit/<?=$produit['PRODUCT_ID']?>" method="post">
 
             <div id="contenuInput">
-                <h1>Suprimer un produit v0.1.0</h1>
+                <h1>Supprimer un produit v0.1.0</h1>
                 <br/>
                 <p>
                 <label for="nomProd">Nom du produit</label> : <input type="text" id="nomProd" value="<?= $produit['Product_Name'] ?>" disabled /><br />

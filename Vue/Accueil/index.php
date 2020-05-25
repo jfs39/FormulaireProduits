@@ -26,6 +26,23 @@
     <?php endforeach; ?>
     
     </table>
+    <table align="center">
+
+    <?php foreach ($caracteristiques as $caract):?> 
+        
+         <tr>
+        
+            <td><a href="<?="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/chargerModifCaracteristique/" .$this->nettoyer($caract['ID_CARACTERISTIQUE']) ?>" >[modifier]</a> <strong> </td> 
+            <td><a href="<?="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/chargerSupprimeCaracteristique/" .$this->nettoyer($caract['ID_CARACTERISTIQUE']) ?>">[supprimer]</a></td>
+            <strong> <td> Nom de la caractéristique : </strong> <em> <?= $this->nettoyer($caract['Nom_Caracteristique'])?> </em> </td>
+            <td> Description : <em> <?= $this->nettoyer($caract['Details_Caracteristique']) ?> </em>  </td>
+            <td> Type de données : <em> <?= $this->nettoyer(($caract['Type_Donnees_Caracteristique'])) ?></em></td> 
+
+        </tr>
+        
+    <?php endforeach; ?>
+    
+    </table>
         
     <br/>
     <br/>
