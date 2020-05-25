@@ -30,5 +30,5 @@
             <a href="index.php"><button>Retour à l'accueil</button></a>
             <br/>
             <br/>
-            <?= ($erreur == 'succes') ? '<span style="color : green;">Votre produit a été généré avec succès</span>' : '' ?>
+            <?= ($erreur == 'succes') ? '<span style="color : green;">Votre caractéristique a été généré avec succès</span>' : '' ?>
         </div>

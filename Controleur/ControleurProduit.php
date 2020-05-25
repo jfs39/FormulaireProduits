@@ -22,39 +22,28 @@ class ControleurProduit extends Controleur{
 
   }
 
-  public function ajouterProduit($produit){
-    
-    $validation_ajout = !filter_var( $produit['nomProd'], FILTER_VALIDATE_INT);
-    $vue = new Vue("Ajouter");
-    $produits = $this->produit->getProduits();
-
-    if($validation_ajout && $produit['nomProd'] != '' ){
-
-        $this->produit->setProduit($produit);
-        $vue->generer(array('produits' => $produits,'erreur'=> 'succes'));
-
-    } else {
-
-        $vue->generer(array('produits' => $produits,'erreur' => 'nom'));
-    }
-
-}
-
 public function ajouter(){
-
+  
   $nomProd = $this->requete->getParametre("nomProd");
+  $validation_ajout = !filter_var( $nomProd, FILTER_VALIDATE_INT);
   $texteDesc = $this->requete->getParametre("texteDesc");
   $prix = $this->requete->getParametre("prix");
   $texteDet = $this->requete->getParametre("texteDet");
-  
+
+  if($validation_ajout && $nomProd != '' ){
+
   $this->produit->ajoutProduit($nomProd, $texteDesc, $prix, $texteDet);
- 
-  $this->executerAction('ajoutDeProduit');
+  
+  $vue = new Vue("Produit/ajoutDeProduit");
+  $vue->generer(array('erreur' => 'succes'));
+  } else {
+        $vue = new Vue("Produit/ajoutDeProduit");
+      $vue->generer(array('erreur' => 'nom'));
+  }
 }
 
   public function ajoutDeProduit(){
-  $produits = $this->produit->getProduits();
-  $this->genererVue(array('produits' => $produits,'erreur'=> 'aucun'));
+  $this->genererVue(array('erreur'=> 'aucun'));
 
   }
 
@@ -69,7 +58,9 @@ public function ajouter(){
     $id= $this->requete->getParametre("id");
       $this->produit->deleteProduit($id);
       $produits = $this->produit->getProduits();
-      $this->index();
+      $caract = $this->caracteristique->getCaracts();
+      $vue = new Vue("Accueil/index");
+      $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
       
     }
 
@@ -86,15 +77,15 @@ public function ajouter(){
       $this->produit->modifierProduit($id, $produit);
       $vue = new Vue("Accueil/index");
       $produits = $this->produit->getProduits();
-      $vue->generer(array('produits' => $produits));
+      $caract = $this->caracteristique->getCaracts();
+      $vue->generer(array('produits' => $produits, 'caracteristiques' => $caract));
       
     }
 
    public function confirmerModifier(){
      $id = $this->requete->getParametre("id");
       $produit = $this->produit->getProduit($id);
-      $vue = new Vue("vueModifier");
-      $vue->generer(array('produit' => $produit));  
+      $this->genererVue(array('produit' => $produit));  
   }
 
     public function accueil() {
@@ -103,32 +94,10 @@ public function ajouter(){
       $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
   }
   public function index(){
-        
-    $produits = $this->produit->getProduits();
+      $vue = new Vue("AjoutDeProduit");
     
-    $this->genererVue(array('produits' => $produits));
+    $this->genererVue(array('erreur' => 'succes'));
   }
 
-  public function chargerVueAssigner(){
-   
-    $produits = $this->produit->getProduits();
-    $caract = $this->caracteristique->getCaracts();
-    $vue = new Vue("vueAssignerProduit");
-    $vue->generer(array('produits' => $produits,'caract'=> $caract));
-  }
 
-  public function assigner(){
-    $idProd = $_POST["produit"]; 
-    $idCaract =  $_POST["caract"];
-    $this->produit->assignerProduit($idProd,$idCaract);
-    index();
-
-  }
-
-  public function chargerVueProduitCaracteristiques(){
-    $produits = $this->produit->getProduitsCaracteristiques();
-    $vue = new Vue("vueProduitsCaracteristiques");
-    $vue->generer(array('produits' => $produits));
-
-  }
 }

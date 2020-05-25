@@ -19,4 +19,4 @@
 
     <br /><br/>
 
-<input type="button" value="Annuler" onclick="history.back();"/>
+<input type="button" value="Retour au menu principal" onclick="history.back();"/>

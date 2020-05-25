@@ -12,13 +12,23 @@ class ControleurCaracteristiques extends Controleur{
 
       public function ajouter(){
 
+        
         $nomCaract = $this->requete->getParametre("nomCaract");
+        $validation_ajout = !filter_var( $nomCaract, FILTER_VALIDATE_INT);
         $descCaract = $this->requete->getParametre("descCaract");
         $typeCaract = $this->requete->getParametre("typeCaract");
-        
-        $this->caracteristique->ajoutCaracteristique($nomCaract, $descCaract, $typeCaract);
+
+        if($validation_ajout && $nomCaract != '' ){
+          $this->caracteristique->ajoutCaracteristique($nomCaract, $descCaract, $typeCaract);
        
-        $this->executerAction("index");
+          $vue = new Vue("Caracteristiques/AjoutCaracteristique");
+          $vue->generer(['erreur'=>'succes']);
+        } else {
+          $vue = new Vue("Caracteristiques/AjoutCaracteristique");
+          $vue->generer(['erreur'=>'nom']);
+
+        }
+
       }
 
       public function modifier(){
@@ -49,11 +59,8 @@ class ControleurCaracteristiques extends Controleur{
         $this->genererVue(array('caracteristiques' => $caracteristiques));
       }
 
-      public function chargerAjoutCaracteristique(){
-
-        $vue = new Vue("vueAjouterCaract");
-    
-        $vue->generer(array('erreur'=> 'aucun'));
+      public function AjoutCaracteristique(){
+        $this->genererVue(array('erreur'=> 'aucun'));
       }
 
       public function chargerModifCaracteristique(){

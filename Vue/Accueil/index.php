@@ -7,8 +7,8 @@
         <a href="Caracteristiques/AjoutCaracteristique/"><button>Ajoutez une caractéristique à la liste</button></a>
         <br/>
         <br/>
-        <a href="Produit/AssignerProduit/"><button>Assignez une caractéristique à un produit</button></a>
-        <a href="Produit/ProduitCaracteristiques/"><button>Voir les produits qui ont des caractéristiques</button></a>
+        <a href="ProduitCaracteristiques/AssignerProduit/"><button>Assignez une caractéristique à un produit</button></a>
+        <a href="ProduitCaracteristiques/ProduitsCaracteristiques/"><button>Voir les produits qui ont des caractéristiques</button></a>
 
     </div>
 
