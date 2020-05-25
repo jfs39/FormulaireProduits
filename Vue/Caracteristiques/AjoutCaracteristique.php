@@ -1,6 +1,6 @@
 <body>
     <div class="principal">
-            <form action="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/Ajouter/" method="post">
+            <form action="Caracteristiques/Ajouter/" method="post">
                 <div id="contenuInput">
                     <h1>Ajouter une caractéristique v0.1.0</h1>
                     <br/>

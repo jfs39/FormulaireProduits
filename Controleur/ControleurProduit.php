@@ -49,30 +49,27 @@ public function ajouter(){
   
   $this->produit->ajoutProduit($nomProd, $texteDesc, $prix, $texteDet);
  
-  $this->executerAction("index");
+  $this->executerAction('ajoutDeProduit');
 }
 
   public function ajoutDeProduit(){
-  $vue = new Vue("vueAjouter");
   $produits = $this->produit->getProduits();
-  $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+  $this->genererVue(array('produits' => $produits,'erreur'=> 'aucun'));
 
   }
 
-  public function chargerSupprimer(){
+  public function confirmerSupprimer(){
     $id= $this->requete->getParametre("id");
     $produit= $this->produit->getProduit($id);
-  $vue = new Vue("vueSupprimer");
-  $vue->generer(array('produit'=>$produit));
+  $this->genererVue(array('produit'=>$produit));
 
   }
 
   public function supprimerUnProduit(){
     $id= $this->requete->getParametre("id");
       $this->produit->deleteProduit($id);
-      $vue = new Vue("Accueil/index");
       $produits = $this->produit->getProduits();
-      $vue->generer(array('produits' => $produits));
+      $this->index();
       
     }
 

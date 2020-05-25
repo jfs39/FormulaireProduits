@@ -7,7 +7,7 @@
     </style>
     <body>
   <!--  &PRODUCT_ID=<?=$caract['ID_CARACTERISTIQUE']?>-->
-    <form action="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/modifier/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
+    <form action="Caracteristiques/modifier/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
         <div class="principal">
 			<h2>Modifier une caractéristique V1.0.0</h2>
             <p>

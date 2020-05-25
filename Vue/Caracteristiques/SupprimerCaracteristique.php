@@ -1,7 +1,7 @@
 <?php $titre = 'Supprimer une caractéristique'; ?>
     <body>
     <div class="principal">
-        <form action="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/supprimer/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
+        <form action="Caracteristiques/supprimer/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
 
             <div id="contenuInput">
                 <h1>Supprimer une caractéristique v0.1.0</h1>

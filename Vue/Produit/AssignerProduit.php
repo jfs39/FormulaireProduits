@@ -7,7 +7,7 @@
     </style>
     <body>
 
-    <form action="/TP2_MVC_JeanFrancoisSergerie/Produit/assigner" method="post">
+    <form action="Produit/assigner" method="post">
         <div class="principal">
 			<h2>Assigner un produit V1.0.0</h2>
             <p>
