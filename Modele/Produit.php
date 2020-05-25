@@ -11,6 +11,12 @@ public function getProduits() {
     $produits = $this->executerRequete($sql);
     return $produits;
 }
+public function getProduitsCaracteristiques(){
+
+    $sql = 'SELECT * FROM products CROSS JOIN produits_caracteristiques ON PRODUCT_ID=ID_PRODUIT CROSS JOIN caracteristiques ON caracteristiques.ID_CARACTERISTIQUE = produits_caracteristiques.ID_CARACTERISTIQUE';
+    $produits = $this->executerRequete($sql);
+    return $produits;
+}
 //Méthode pour obetnir UN seul produit par son ID de la BDD.
 public function getProduit($id) {
     $sql = 'select * from products'
@@ -55,6 +61,7 @@ public function assignerProduit($idProd,$idCaract){
     $result = $this->executerRequete($sql,array($idProd,$idCaract));
 
 }
+
 
 
 

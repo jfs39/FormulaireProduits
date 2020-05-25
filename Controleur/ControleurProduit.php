@@ -127,4 +127,11 @@ public function ajouter(){
     index();
 
   }
+
+  public function chargerVueProduitCaracteristiques(){
+    $produits = $this->produit->getProduitsCaracteristiques();
+    $vue = new Vue("vueProduitsCaracteristiques");
+    $vue->generer(array('produits' => $produits));
+
+  }
 }
