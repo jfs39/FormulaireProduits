@@ -34,7 +34,7 @@ class Caracteristique extends Modele{
     }
 
     //Méthode pour enlever une caractéristique de ma BDD
-    public function deleteProduit($id) {
+    public function deleteCaracteristique($id) {
         $sql= 'DELETE FROM caracteristiques WHERE ID_CARACTERISTIQUE = ?';
         $result = $this->executerRequete($sql,array($id));
         

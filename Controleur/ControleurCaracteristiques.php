@@ -74,5 +74,7 @@ class ControleurCaracteristiques extends Controleur{
         $vue->generer(array('caract'=>$caract));
       }
 
+      
+
 
 }

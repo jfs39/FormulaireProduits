@@ -1,14 +1,17 @@
 <?php
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Produit.php';
+require_once 'Modele/Caracteristique.php';
 require_once 'Framework/Vue.php';
 
 class ControleurProduit extends Controleur{
 
   private $produit;
+  private $caracteristique;
 
   public function __construct() {
     $this->produit = new Produit();
+    $this->caracteristique = new Caracteristique();
   }
  
   public function produit($idProduit) {
@@ -107,5 +110,21 @@ public function ajouter(){
     $produits = $this->produit->getProduits();
     
     $this->genererVue(array('produits' => $produits));
+  }
+
+  public function chargerVueAssigner(){
+   
+    $produits = $this->produit->getProduits();
+    $caract = $this->caracteristique->getCaracts();
+    $vue = new Vue("vueAssignerProduit");
+    $vue->generer(array('produits' => $produits,'caract'=> $caract));
+  }
+
+  public function assigner(){
+    $idProd = $_POST['produit']; //??
+    $idCaract = $this->requete->getParametre("idCaract");
+    $this->produit->assignerProduit($idProd,$idCaract);
+    index();
+
   }
 }

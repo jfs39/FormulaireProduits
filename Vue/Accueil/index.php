@@ -5,6 +5,9 @@
         <br/>
         <a href="/TP2_MVC_JeanFrancoisSergerie/Produit/AjoutDeProduit/"><button>Ajoutez un produit à la liste</button></a>
         <a href="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/chargerAjoutCaracteristique/"><button>Ajoutez une caractéristique à la liste</button></a>
+        <br/>
+        <br/>
+        <a href="/TP2_MVC_JeanFrancoisSergerie/Produit/chargerVueAssigner/"><button>Assignez une caractéristique à un produit</button></a>
 
     </div>
 
@@ -26,6 +29,7 @@
     <?php endforeach; ?>
     
     </table>
+
     <table align="center">
 
     <?php foreach ($caracteristiques as $caract):?> 

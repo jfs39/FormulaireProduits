@@ -1,19 +1,19 @@
 <?php $titre = 'Supprimer une caractéristique'; ?>
     <body>
     <div class="principal">
-        <form action="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/Supprimer/<?=$produit['PRODUCT_ID']?>" method="post">
+        <form action="/TP2_MVC_JeanFrancoisSergerie/Caracteristiques/supprimer/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
 
             <div id="contenuInput">
                 <h1>Supprimer une caractéristique v0.1.0</h1>
                 <br/>
                 <p>
-                <label for="nomCaract">Nom de la caractéristique</label> : <input type="text" id="nomCaract" value="<?= $produit['Product_Name'] ?>" disabled /><br />
+                <label for="nomCaract">Nom de la caractéristique</label> : <input type="text" id="nomCaract" value="<?= $caract['Nom_Caracteristique'] ?>" disabled /><br />
                 </p>
                 <p>
-                <label for="descCaract">Description de la caractéristique</label> :  <input type="text" name="descCaract" id="descCaract" value="<?= $produit['Price'] ?>$" disabled /><br />
+                <label for="descCaract">Description de la caractéristique</label> :  <input type="text" name="descCaract" id="descCaract" value="<?= $caract['Details_Caracteristique'] ?>$" disabled /><br />
                 </p>
                 <p>
-                <label for="ID_CARACTERISTIQUE">Identifiant de la caractéristique</label> :  <input type="text" id="ID_CARACTERISTIQUE" value="<?= $produit['PRODUCT_ID'] ?>" disabled /> <br />
+                <label for="ID_CARACTERISTIQUE">Identifiant de la caractéristique</label> :  <input type="text" id="ID_CARACTERISTIQUE" value="<?= $caract['ID_CARACTERISTIQUE'] ?>" disabled /> <br />
                 </p>
                 <br/>
             </div>

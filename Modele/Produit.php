@@ -1,6 +1,8 @@
 <?php
 require_once 'Framework/Modele.php';
+
 class Produit extends Modele{
+
 
 //Méthode pour obtenir TOUS les produits de ma BDD
 public function getProduits() {
@@ -47,6 +49,14 @@ public function deleteProduit($id) {
     $result = $this->executerRequete($sql,array($id));
     
 }
+
+public function assignerProduit($idProd,$idCaract){
+    $sql= 'INSERT INTO produits_caracteristiques(ID_PRODUIT,ID_CARACTERISTIQUE) VALUES(?,?);';
+    $result = $this->executerRequete($sql,array($idProd,$idCaract));
+
+}
+
+
 
 
 }
