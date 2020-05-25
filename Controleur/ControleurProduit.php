@@ -121,8 +121,8 @@ public function ajouter(){
   }
 
   public function assigner(){
-    $idProd = $_POST['produit']; //??
-    $idCaract = $this->requete->getParametre("idCaract");
+    $idProd = $_POST["produit"]; 
+    $idCaract =  $_POST["caract"];
     $this->produit->assignerProduit($idProd,$idCaract);
     index();
 
