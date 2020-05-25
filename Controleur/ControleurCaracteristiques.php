@@ -1,13 +1,17 @@
 <?php
 require_once 'Framework/Controleur.php';
+
 require_once 'Modele/Caracteristique.php';
+require_once 'Modele/Produit.php';
 require_once 'Framework/Vue.php';
 
 class ControleurCaracteristiques extends Controleur{
     private $caracteristique;
+    private $produit;
 
     public function __construct() {
         $this->caracteristique = new Caracteristique();
+        $this->produit = new Produit();
       }
 
       public function ajouter(){
@@ -39,7 +43,10 @@ class ControleurCaracteristiques extends Controleur{
 
         $this->caracteristique->modifierCaracteristique($id,$nomCaract, $descCaract, $typeCaract);
        
-        $this->executerAction("index");
+        $produits = $this->produit->getProduits();
+        $caract = $this->caracteristique->getCaracts();
+        $vue = new Vue("Accueil/index");
+        $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
 
       }
 
@@ -47,8 +54,10 @@ class ControleurCaracteristiques extends Controleur{
         $id = $this->requete->getParametre("id");
 
         $this->caracteristique->deleteCaracteristique($id);
-       
-        $this->executerAction("index");
+        $produits = $this->produit->getProduits();
+        $caract = $this->caracteristique->getCaracts();
+        $vue = new Vue("Accueil/index");
+        $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
 
       }
 
@@ -63,22 +72,18 @@ class ControleurCaracteristiques extends Controleur{
         $this->genererVue(array('erreur'=> 'aucun'));
       }
 
-      public function chargerModifCaracteristique(){
+      public function ModifCaracteristique(){
         $id = $this->requete->getParametre("id");
         $caract = $this->caracteristique->getCaract($id);
-        
-        $vue = new Vue("vueModifierCaract");
     
-        $vue->generer(array('caract'=>$caract));
+        $this->genererVue(array('caract'=>$caract));
       }
 
-      public function chargerSupprimeCaracteristique(){
+      public function SupprimerCaracteristique(){
         $id = $this->requete->getParametre("id");
         $caract = $this->caracteristique->getCaract($id);
-        
-        $vue = new Vue("vueSupprimerCaract");
     
-        $vue->generer(array('caract'=>$caract));
+        $this->genererVue(array('caract'=>$caract));
       }
 
       

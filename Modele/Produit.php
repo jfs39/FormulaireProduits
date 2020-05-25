@@ -56,11 +56,7 @@ public function deleteProduit($id) {
     
 }
 
-public function assignerProduit($idProd,$idCaract){
-    $sql= 'INSERT INTO produits_caracteristiques(ID_PRODUIT,ID_CARACTERISTIQUE) VALUES(?,?);';
-    $result = $this->executerRequete($sql,array($idProd,$idCaract));
 
-}
 
 
 

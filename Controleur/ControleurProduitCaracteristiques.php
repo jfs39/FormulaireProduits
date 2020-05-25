@@ -1,16 +1,19 @@
 <?php
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Produit.php';
+require_once 'Modele/ProduitCaracteristique.php';
 require_once 'Modele/Caracteristique.php';
 require_once 'Framework/Vue.php';
 
 class ControleurProduitCaracteristiques extends Controleur{
     private $produit;
     private $caracteristique;
+    private $produitCaracteristique;
 
     public function __construct() {
         $this->produit = new Produit();
         $this->caracteristique = new Caracteristique();
+        $this->produitCaracteristique = new ProduitCaracteristique();
       }
     public function AssignerProduit(){
    
@@ -22,7 +25,7 @@ class ControleurProduitCaracteristiques extends Controleur{
       public function assigner(){
         $idProd = $_POST["produit"]; 
         $idCaract =  $_POST["caract"];
-        $this->produit->assignerProduit($idProd,$idCaract);
+        $this->produitCaracteristique->assignerProduit($idProd,$idCaract);
         $vue = new Vue("Accueil/index");
         $produits = $this->produit->getProduits();
         $caracts = $this->caracteristique->getCaracts();
