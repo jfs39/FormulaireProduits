@@ -7,13 +7,13 @@
                 <h1>Supprimer une caractéristique v0.1.0</h1>
                 <br/>
                 <p>
-                <label for="nomCaract">Nom de la caractéristique</label> : <input type="text" id="nomCaract" value="<?= $caract['Nom_Caracteristique'] ?>" disabled /><br />
+                <label for="nomCaract">Nom de la caractéristique</label> : <input type="text" id="nomCaract" value="<?= $this->nettoyer($caract['Nom_Caracteristique']) ?>" disabled /><br />
                 </p>
                 <p>
-                <label for="descCaract">Description de la caractéristique</label> :  <input type="text" name="descCaract" id="descCaract" value="<?= $caract['Details_Caracteristique'] ?>$" disabled /><br />
+                <label for="descCaract">Description de la caractéristique</label> :  <input type="text" name="descCaract" id="descCaract" value="<?= $this->nettoyer($caract['Details_Caracteristique'] )?>$" disabled /><br />
                 </p>
                 <p>
-                <label for="ID_CARACTERISTIQUE">Identifiant de la caractéristique</label> :  <input type="text" id="ID_CARACTERISTIQUE" value="<?= $caract['ID_CARACTERISTIQUE'] ?>" disabled /> <br />
+                <label for="ID_CARACTERISTIQUE">Identifiant de la caractéristique</label> :  <input type="text" id="ID_CARACTERISTIQUE" value="<?=$this->nettoyer( $caract['ID_CARACTERISTIQUE'] )?>" disabled /> <br />
                 </p>
                 <br/>
             </div>

@@ -7,13 +7,13 @@
                 <h1>Supprimer un produit v0.1.0</h1>
                 <br/>
                 <p>
-                <label for="nomProd">Nom du produit</label> : <input type="text" id="nomProd" value="<?= $produit['Product_Name'] ?>" disabled /><br />
+                <label for="nomProd">Nom du produit</label> : <input type="text" id="nomProd" value="<?= $this->nettoyer($produit['Product_Name']) ?>" disabled /><br />
                 </p>
                 <p>
-                <label for="prix">Prix du produit</label> :  <input type="text" name="prix" id="prix" value="<?= $produit['Price'] ?>$" disabled /><br />
+                <label for="prix">Prix du produit</label> :  <input type="text" name="prix" id="prix" value="<?= $this->nettoyer($produit['Price']) ?>$" disabled /><br />
                 </p>
                 <p>
-                <label for="id">Identifiant du produit</label> :  <input type="text" id="id"value="<?= $produit['PRODUCT_ID'] ?>" disabled /> <br />
+                <label for="id">Identifiant du produit</label> :  <input type="text" id="id"value="<?= $this->nettoyer($produit['PRODUCT_ID']) ?>" disabled /> <br />
                 </p>
                 <br/>
             </div>

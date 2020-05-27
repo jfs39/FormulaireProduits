@@ -20,10 +20,12 @@ class ControleurAdmin extends ControleurSecurise
 
     public function index()
     {
+        $produits = $this->produit->getProduits();
+        $caract = $this->caracteristique->getCaracts();
         $nbProduits = $this->produit->getNombreProduits();
         $nbCaracteristiques = $this->caracteristique->getNombreCaracteristiques();
         $login = $this->requete->getSession()->getAttribut("login");
-        $this->genererVue(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login));
+        $this->genererVue(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
     }
 
 }

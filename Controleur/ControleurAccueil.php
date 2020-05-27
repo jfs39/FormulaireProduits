@@ -19,4 +19,9 @@ class ControleurAccueil extends Controleur{
       $caracteristiques = $this->caracteristique->getCaracts();
       $this->genererVue(array('produits' => $produits, 'caracteristiques' => $caracteristiques));
     }
+
+    public function Apropos(){
+
+      $this->genererVue([],"Apropos");
+    }
   }
