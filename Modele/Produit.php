@@ -55,6 +55,13 @@ public function deleteProduit($id) {
     $result = $this->executerRequete($sql,array($id));
     
 }
+//Méthode pour compter le nombre de produits
+public function getNombreProduits(){
+    $sql = 'SELECT count(*) as nbProduits FROM products';
+    $resultat = $this->executerRequete($sql);
+    $ligne = $resultat->fetch();
+    return $ligne['nbProduits'];
+}
 
 
 

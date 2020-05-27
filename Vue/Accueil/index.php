@@ -1,7 +1,7 @@
 <?php $titre = 'Insertion de produits'; ?>
     <body>
     <div id="contenuInput">
-        <h1>Ajouter un produit v0.1.0</h1>
+        <h1>Gestion de produits v1.1.0</h1>
         <br/>
         <a href="Produit/AjoutDeProduit/"><button>Ajoutez un produit à la liste</button></a>
         <a href="Caracteristiques/AjoutCaracteristique/"><button>Ajoutez une caractéristique à la liste</button></a>
@@ -9,6 +9,8 @@
         <br/>
         <a href="ProduitCaracteristiques/AssignerProduit/"><button>Assignez une caractéristique à un produit</button></a>
         <a href="ProduitCaracteristiques/ProduitsCaracteristiques/"><button>Voir les produits qui ont des caractéristiques</button></a>
+        <br/>
+        <a href="Connexion/index/"><button>Se connecter</button></a>
 
     </div>
 

@@ -32,13 +32,27 @@ abstract class Controleur {
   public abstract function index();
 
 
-  protected function genererVue($donneesVue = array()) {
+  protected function genererVue($donneesVue = array(), $action = null)
+  {
+      // Utilisation de l'action actuelle par défaut
+      $actionVue = $this->action;
+      if ($action != null) {
+          // Utilisation de l'action passée en paramètre
+          $actionVue = $action;
+      }
+      // Utilisation du nom du contrôleur actuel
+      $classeControleur = get_class($this);
+      $controleurVue = str_replace("Controleur", "", $classeControleur);
 
-    $classeControleur = get_class($this);
-    $controleur = str_replace("Controleur", "", $classeControleur);
-    
-    $vue = new Vue($this->action, $controleur);
-    $vue->generer($donneesVue);
+      // Instanciation et génération de la vue
+      $vue = new Vue($actionVue, $controleurVue);
+      $vue->generer($donneesVue);
+  }
+
+  protected function rediriger($controleur, $action = null)
+  {
+      $racineWeb = Configuration::get("racineWeb", "/");
+      header("Location:" . $racineWeb . $controleur . "/" . $action);
   }
 }
 

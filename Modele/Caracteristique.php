@@ -40,5 +40,12 @@ class Caracteristique extends Modele{
         
     }
 
+    public function getNombreCaracteristiques(){
+        $sql = 'SELECT count(*) as nbCaracts FROM caracteristiques';
+        $resultat = $this->executerRequete($sql);
+        $ligne = $resultat->fetch();
+        return $ligne['nbCaracts'];
+    }
+
 
 }
