@@ -1,6 +1,7 @@
 <?php
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Produit.php';
+require_once 'Modele/Utilisateur.php';
 require_once 'Modele/Caracteristique.php';
 require_once 'Framework/Vue.php';
 
@@ -8,10 +9,12 @@ class ControleurProduit extends Controleur{
 
   private $produit;
   private $caracteristique;
+  private $utilisateur;
 
   public function __construct() {
     $this->produit = new Produit();
     $this->caracteristique = new Caracteristique();
+    $this->utilisateur = new Utilisateur();
   }
  
   public function produit($idProduit) {

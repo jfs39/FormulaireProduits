@@ -12,17 +12,19 @@
 			<h2>Modifier un Produit V0.0.3</h2>
             <p>
            
-                <label for="nomProd">Nom du produit </label> : <input type="text" name="nomProd" id="nomProd" value="<?php $this->nettoyer($produit['Product_Name']); ?>" /><br />
+                <label for="nomProd">Nom du produit </label> : <input type="text" name="nomProd" id="nomProd" value="<?php echo $produit['Product_Name']; ?>" /><br />
                 <br />
-                <label for="texteDesc">Description du produit</label> :  <textarea type="text" name="texteDesc" id="texteDesc" ><?php $this->nettoyer($produit['Product_Description']); ?></textarea><br />
+                <label for="texteDesc">Description du produit</label> :  <textarea type="text" name="texteDesc" id="texteDesc" ><?php echo $produit['Product_Description']; ?></textarea><br />
 				<br />
-                <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix" value="<?php $this->nettoyer($produit['Price']); ?>"></input><br />
+                <label for="prix">Prix du produit</label> :  <input type="number" name="prix" id="prix" value="<?php echo $produit['Price']; ?>"></input><br />
                 <br />
-                <label for="texteDet">Autres détails</label> :  <textarea type="text" name="texteDet" id="texteDet" ><?php $this->nettoyer($produit['Other_Details']); ?></textarea><br />
+                <label for="texteDet">Autres détails</label> :  <textarea type="text" name="texteDet" id="texteDet" ><?php echo $produit['Other_Details']; ?></textarea><br />
                 <br />
                 <input type="hidden" name="PRODUCT_ID" value="<?php echo $produit['PRODUCT_ID']; ?>"/>
                 <br />
                 <input type="submit" value="Modifier" />
+                <br />
+                <br />
                 <br />
                 <input type="button" value="Annuler" onclick="history.back();"/>
                 

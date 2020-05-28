@@ -28,4 +28,9 @@ class ControleurAdmin extends ControleurSecurise
         $this->genererVue(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
     }
 
+    public function consulterAdmin(){
+        $produits = $this->produit->getProduitsAdmin($_SESSION['id']);
+        $this->genererVue(array('produits'=>$produits));
+    }
+
 }

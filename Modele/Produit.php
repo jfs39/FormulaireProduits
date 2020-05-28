@@ -7,10 +7,17 @@ class Produit extends Modele{
 //Méthode pour obtenir TOUS les produits de ma BDD
 public function getProduits() {
 
-    $sql = 'SELECT * FROM products';
+    $sql = 'SELECT * FROM products INNER JOIN utilisateurs ON USER_ID=id;';
     $produits = $this->executerRequete($sql);
     return $produits;
 }
+
+public function getProduitsAdmin($id){
+    $sql = 'SELECT * FROM products INNER JOIN utilisateurs ON USER_ID=id WHERE USER_ID = ?;';
+    $produits = $this->executerRequete($sql,[$id]);
+    return $produits;
+}
+
 public function getProduitsCaracteristiques(){
 
     $sql = 'SELECT * FROM products CROSS JOIN produits_caracteristiques ON PRODUCT_ID=ID_PRODUIT CROSS JOIN caracteristiques ON caracteristiques.ID_CARACTERISTIQUE = produits_caracteristiques.ID_CARACTERISTIQUE';
@@ -28,25 +35,14 @@ public function getProduit($id) {
         throw new Exception("Aucun Produit ne correspond à l'identifiant '$id'");
 }
 
-//Méthode pour ajouter des produits à ma BDD
-public function setProduit($produit) {
-
-    $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
-    $produit = $this->executerRequete($sql,array($produit['nomProd'], $produit['texteDesc'], $produit['prix'], $produit['texteDet'], 1));
-
-}
-
 public function ajoutProduit($nomProd,$texteDesc,$prix,$texteDet){
-
-    if(isset($_SESSION)){
-        $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
-        $produit = $this->executerRequete($sql,array($nomProd, $texteDesc, $prix, $texteDet,$_SESSION['id']));
-
+    $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
+    if(isset($_SESSION['id'])){
+        $produit = $this->executerRequete($sql,array($nomProd, $texteDesc, $prix, $texteDet, $_SESSION['id']));
     } else {
-
-        $sql = 'INSERT INTO products(Product_Name, Product_Description, Price, Other_Details,USER_ID) VALUES( ?, ?, ?, ?, ?);';
         $produit = $this->executerRequete($sql,array($nomProd, $texteDesc, $prix, $texteDet, 1));
     }
+
 }
 
 //Méthode pour modifier un produit de ma BDD

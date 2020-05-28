@@ -4,7 +4,8 @@
 
 Bienvenue, <?= $this->nettoyer($login) ?> !
 Ce programme comporte <?= $this->nettoyer($nbProduits) ?> produit(s) et <?= $this->nettoyer($nbCaracteristiques) ?> caracteristique(s).
-<br>
+<br/>
+<a href="admin/consulterAdmin">Consultez vos produits</a><br/>
 <a id="lienDeco" href="connexion/deconnecter">Se déconnecter</a><br/>
 <h1>Voici la liste de tous les produits</h1>
     <table align="center">
