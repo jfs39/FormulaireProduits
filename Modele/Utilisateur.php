@@ -14,6 +14,7 @@ class Utilisateur extends Modele {
     }
 
 
+
     public function getUtilisateur($login, $mdp)
     {
         $sql = "select identifiant as idUtilisateur, nom as login, mot_de_passe as mdp 
