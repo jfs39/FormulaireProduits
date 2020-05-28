@@ -26,10 +26,11 @@ class ControleurProduitCaracteristiques extends Controleur{
         $idProd = $_POST["produit"]; 
         $idCaract =  $_POST["caract"];
         $this->produitCaracteristique->assignerProduit($idProd,$idCaract);
-        $vue = new Vue("Accueil/index");
+       // $vue = new Vue("Accueil/index");
         $produits = $this->produit->getProduits();
         $caracts = $this->caracteristique->getCaracts();
-        $vue->generer(array('produits' => $produits, 'caracteristiques' => $caracts));
+       // $vue->generer(array('produits' => $produits, 'caracteristiques' => $caracts));
+       $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
     
       }
     

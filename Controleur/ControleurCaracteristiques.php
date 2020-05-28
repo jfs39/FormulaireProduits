@@ -25,11 +25,13 @@ class ControleurCaracteristiques extends Controleur{
         if($validation_ajout && $nomCaract != '' ){
           $this->caracteristique->ajoutCaracteristique($nomCaract, $descCaract, $typeCaract);
        
-          $vue = new Vue("Caracteristiques/AjoutCaracteristique");
-          $vue->generer(['erreur'=>'succes']);
+         // $vue = new Vue("Caracteristiques/AjoutCaracteristique");
+         // $vue->generer(['erreur'=>'succes']);
+          $this->genererVue(['erreur'=>'succes'],"AjoutCaracteristique");
         } else {
-          $vue = new Vue("Caracteristiques/AjoutCaracteristique");
-          $vue->generer(['erreur'=>'nom']);
+         // $vue = new Vue("Caracteristiques/AjoutCaracteristique");
+         // $vue->generer(['erreur'=>'nom']);
+          $this->genererVue(['erreur'=>'nom'],"AjoutCaracteristique");
 
         }
 
@@ -45,8 +47,10 @@ class ControleurCaracteristiques extends Controleur{
        
         $produits = $this->produit->getProduits();
         $caract = $this->caracteristique->getCaracts();
-        $vue = new Vue("Accueil/index");
-        $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
+       // $vue = new Vue("Accueil/index");
+        //$vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
+
+        $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
 
       }
 
@@ -56,9 +60,9 @@ class ControleurCaracteristiques extends Controleur{
         $this->caracteristique->deleteCaracteristique($id);
         $produits = $this->produit->getProduits();
         $caract = $this->caracteristique->getCaracts();
-        $vue = new Vue("Accueil/index");
-        $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
-
+       // $vue = new Vue("Accueil/index");
+       // $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
+        $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
       }
 
       public function index(){

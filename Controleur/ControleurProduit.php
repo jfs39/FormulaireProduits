@@ -62,26 +62,32 @@ public function ajouter(){
       $this->produit->deleteProduit($id);
       $produits = $this->produit->getProduits();
       $caract = $this->caracteristique->getCaracts();
-      $vue = new Vue("Accueil/index");
-      $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
+    //  $vue = new Vue("Accueil/index");
+     // $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
+      $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
       
     }
 
     public function confirmer($id) {
 
      $produit= $this->produit->getProduit($id);
-      $vue = new Vue("Supprimer");
-      $vue->generer(array('produit' => $produit));
+    //  $vue = new Vue("Supprimer");
+    //  $vue->generer(array('produit' => $produit));
+      $this->genererVue(['produit'=> $produit],"Supprimer");
   }
 
   public function modifierUnProduit(){
       $id = $this->requete->getParametre("id");
       $produit = $_POST;
       $this->produit->modifierProduit($id, $produit);
-      $vue = new Vue("Accueil/index");
+      $vue = new Vue("Admin/index");
       $produits = $this->produit->getProduits();
       $caract = $this->caracteristique->getCaracts();
-      $vue->generer(array('produits' => $produits, 'caracteristiques' => $caract));
+      $nbProduits = $this->produit->getNombreProduits();
+      $nbCaracteristiques = $this->caracteristique->getNombreCaracteristiques();
+      $login = $this->requete->getSession()->getAttribut("login");
+      $vue->generer(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
+
       
     }
 
@@ -93,11 +99,12 @@ public function ajouter(){
 
     public function accueil() {
       $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
-      $vue = new Vue("Accueil");
-      $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+    //  $vue = new Vue("Accueil");
+     // $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
+     $this->genererVue(array('produits' => $produits,'erreur'=> 'aucun'),"Accueil");
   }
   public function index(){
-      $vue = new Vue("AjoutDeProduit");
+      
     
     $this->genererVue(array('erreur' => 'succes'));
   }
