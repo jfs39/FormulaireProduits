@@ -17,6 +17,7 @@
                 </p>
                 <br/>
             </div>
+            <p>AVERTISSEMENT: Supprimer un produit qui est assigné à des caractéristiques supprimers également toutes ses assignations.</p>
             <input type="submit" value="Supprimer le produit" id="submit" />
             <br/>
             <input type="button" value="Annuler" onclick="history.back();"/>

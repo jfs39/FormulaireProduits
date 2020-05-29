@@ -24,13 +24,9 @@ class ControleurCaracteristiques extends Controleur{
 
         if($validation_ajout && $nomCaract != '' ){
           $this->caracteristique->ajoutCaracteristique($nomCaract, $descCaract, $typeCaract);
-       
-         // $vue = new Vue("Caracteristiques/AjoutCaracteristique");
-         // $vue->generer(['erreur'=>'succes']);
           $this->genererVue(['erreur'=>'succes'],"AjoutCaracteristique");
         } else {
-         // $vue = new Vue("Caracteristiques/AjoutCaracteristique");
-         // $vue->generer(['erreur'=>'nom']);
+
           $this->genererVue(['erreur'=>'nom'],"AjoutCaracteristique");
 
         }
@@ -47,11 +43,7 @@ class ControleurCaracteristiques extends Controleur{
        
         $produits = $this->produit->getProduits();
         $caract = $this->caracteristique->getCaracts();
-       // $vue = new Vue("Accueil/index");
-        //$vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
-
-        $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
-
+       $this->index();
       }
 
       public function supprimer(){
@@ -60,17 +52,29 @@ class ControleurCaracteristiques extends Controleur{
         $this->caracteristique->deleteCaracteristique($id);
         $produits = $this->produit->getProduits();
         $caract = $this->caracteristique->getCaracts();
-       // $vue = new Vue("Accueil/index");
-       // $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
-        $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
+
+        $this->index();
       }
 
       public function index(){
+        $produits = $this->produit->getProduits();
+        $caract = $this->caracteristique->getCaracts();
+        $nbProduits = $this->produit->getNombreProduits();
+        $nbCaracteristiques = $this->caracteristique->getNombreCaracteristiques();
         
-        $caracteristiques = $this->caracteristique->getCaracts();
         
-        $this->genererVue(array('caracteristiques' => $caracteristiques));
+        if(isset($_SESSION['id'])){
+          $login = $this->requete->getSession()->getAttribut("login");
+          $vue = new Vue("Admin/index");
+          $vue->generer(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
+    
+        }else{
+          $produits = $this->produit->getProduits();
+          $caract = $this->caracteristique->getCaracts();
+          $vue =  new Vue("Accueil/index");
+          $vue->generer(array('produits' => $produits, 'caracteristiques' => $caract));
       }
+    }
 
       public function AjoutCaracteristique(){
         $this->genererVue(array('erreur'=> 'aucun'));

@@ -19,4 +19,4 @@
 
     <br /><br/>
 
-<input type="button" value="Retour au menu principal" onclick="history.back();"/>
+    <a href="ProduitCaracteristiques/index"><button>Retour à l'accueil</button></a>

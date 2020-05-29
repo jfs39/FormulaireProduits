@@ -8,4 +8,4 @@
 <h2>Voici une image de ma base de données utilisée.</h2>
 <img src="Contenu/img/imageDatabasePHP.jpg">
 <br/>
-<button onclick="history.back();">Retour</button>
+<a href="Produit/index"><button>Retour à l'accueil</button></a>

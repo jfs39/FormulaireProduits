@@ -31,7 +31,7 @@
                 
             </form>
 
-            <button onclick="history.back()">Retour</button>
+            <a href="Produit/index"><button>Retour</button></a>
             <br/>
             <br/>
             <?= ($erreur == 'succes') ? '<span style="color : green;">Votre produit a été généré avec succès</span>' : '' ?>

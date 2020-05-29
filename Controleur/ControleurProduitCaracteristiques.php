@@ -30,8 +30,8 @@ class ControleurProduitCaracteristiques extends Controleur{
         $produits = $this->produit->getProduits();
         $caracts = $this->caracteristique->getCaracts();
        // $vue->generer(array('produits' => $produits, 'caracteristiques' => $caracts));
-       $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
-    
+       //$this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
+       $this->index();
       }
     
       public function ProduitsCaracteristiques(){
@@ -41,9 +41,23 @@ class ControleurProduitCaracteristiques extends Controleur{
       }
 
       public function index(){
-        $vue = new Vue("AjoutDeProduit");
-      
-      $this->genererVue(array('erreur' => 'succes'));
+        $produits = $this->produit->getProduits();
+        $caract = $this->caracteristique->getCaracts();
+        $nbProduits = $this->produit->getNombreProduits();
+        $nbCaracteristiques = $this->caracteristique->getNombreCaracteristiques();
+        
+        
+        if(isset($_SESSION['id'])){
+          $login = $this->requete->getSession()->getAttribut("login");
+          $vue = new Vue("Admin/index");
+          $vue->generer(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
+    
+        }else{
+          $produits = $this->produit->getProduits();
+          $caract = $this->caracteristique->getCaracts();
+          $vue =  new Vue("Accueil/index");
+          $vue->generer(array('produits' => $produits, 'caracteristiques' => $caract));
+      }
     }
 
 
