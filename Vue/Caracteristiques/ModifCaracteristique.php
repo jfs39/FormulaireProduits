@@ -12,11 +12,11 @@
 			<h2>Modifier une caractéristique V1.0.0</h2>
             <p>
            
-                <label for="nomCaract">Nom de caractéristique </label> : <input type="text" name="nomCaract" id="nomCaract" value="<?php $this->nettoyer($caract['Nom_Caracteristique']); ?>" /><br />
+                <label for="nomCaract">Nom de caractéristique </label> : <input type="text" name="nomCaract" id="nomCaract" value="<?php echo $this->nettoyer($caract['Nom_Caracteristique']); ?>" /><br />
                 <br />
-                <label for="descCaract">Détails de la caractéristique</label> :  <textarea type="text" name="descCaract" id="descCaract" ><?php $this->nettoyer($caract['Details_Caracteristique']); ?></textarea><br />
+                <label for="descCaract">Détails de la caractéristique</label> :  <textarea type="text" name="descCaract" id="descCaract" ><?php echo $this->nettoyer($caract['Details_Caracteristique']); ?></textarea><br />
 				<br />
-                <label for="typeCaract">Type de donnée</label> :  <input type="text" name="typeCaract" id="typeCaract" value="<?php $this->nettoyer($caract['Type_Donnees_Caracteristique']); ?>"></input><br />
+                <label for="typeCaract">Type de donnée</label> :  <input type="text" name="typeCaract" id="typeCaract" value="<?php echo $this->nettoyer($caract['Type_Donnees_Caracteristique']); ?>"></input><br />
                 <br />
                 <input type="hidden" name="ID_CARACTERISTIQUE" value="<?php echo $caract['ID_CARACTERISTIQUE']; ?>"/>
                 <br />

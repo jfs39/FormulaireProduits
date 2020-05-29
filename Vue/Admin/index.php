@@ -20,6 +20,7 @@ Ce programme comporte <?= $this->nettoyer($nbProduits) ?> produit(s) et <?= $thi
             <td> Description : <em> <?= $this->nettoyer($produit['Product_Description']) ?> </em>  </td>
             <td> <?= $this->nettoyer(($produit['Price'])) ?><em> $</em></td> 
             <td> (Autre détails :  <?= $this->nettoyer(($produit['Other_Details'])) ?>)</td></th>
+            <td> (Créé par :  <?= $this->nettoyer(($produit['nom'])) ?>)</td></th>
 
         </tr>
         
