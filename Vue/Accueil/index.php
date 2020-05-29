@@ -1,5 +1,5 @@
 <?php $titre = 'Insertion de produits'; ?>
-    <body>
+    
     <div id="contenuInput">
         <h1>Gestion de produits v1.1.0</h1>
         <br/>
@@ -45,4 +45,3 @@
     <br/>
     <br/>
     <p><a href="Tests.php">Tests de produits</a></p>
-</body>

@@ -1,4 +1,4 @@
-<body>
+
     <div class="principal">
             <form action="Caracteristiques/Ajouter/" method="post">
                 <div id="contenuInput">

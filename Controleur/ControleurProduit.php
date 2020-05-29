@@ -19,8 +19,6 @@ class ControleurProduit extends Controleur{
  
   public function produit($idProduit) {
     $produit = $this->produit->getProduit($idProduit);
-   // $vue = new Vue("Accueil");
-  //  $vue->generer(array('produit' => $produit));
     return $produit;
 
   }
@@ -35,13 +33,14 @@ public function ajouter(){
 
   if($validation_ajout && $nomProd != '' ){
 
-  $this->produit->ajoutProduit($nomProd, $texteDesc, $prix, $texteDet);
+    $this->produit->ajoutProduit($nomProd, $texteDesc, $prix, $texteDet);
   
-  $vue = new Vue("Produit/ajoutDeProduit");
-  $vue->generer(array('erreur' => 'succes'));
+    $vue = new Vue("Produit/ajoutDeProduit");
+    $vue->generer(array('erreur' => 'succes'));
+
   } else {
         $vue = new Vue("Produit/ajoutDeProduit");
-      $vue->generer(array('erreur' => 'nom'));
+        $vue->generer(array('erreur' => 'nom'));
   }
 }
 
@@ -62,17 +61,11 @@ public function ajouter(){
       $this->produit->deleteProduit($id);
       $produits = $this->produit->getProduits();
       $caract = $this->caracteristique->getCaracts();
-    //  $vue = new Vue("Accueil/index");
-     // $vue->generer(['produits'=> $produits, 'caracteristiques'=>$caract]);
-    //  $this->genererVue(['produits'=> $produits, 'caracteristiques'=>$caract],"index");
       $this->index();
     }
 
     public function confirmer($id) {
-
      $produit= $this->produit->getProduit($id);
-    //  $vue = new Vue("Supprimer");
-    //  $vue->generer(array('produit' => $produit));
       $this->genererVue(['produit'=> $produit],"Supprimer");
   }
 
@@ -80,13 +73,6 @@ public function ajouter(){
       $id = $this->requete->getParametre("id");
       $produit = $_POST;
       $this->produit->modifierProduit($id, $produit);
-    //  $vue = new Vue("Admin/index");
-    //  $produits = $this->produit->getProduits();
-    //  $caract = $this->caracteristique->getCaracts();
-    //  $nbProduits = $this->produit->getNombreProduits();
-    //  $nbCaracteristiques = $this->caracteristique->getNombreCaracteristiques();
-    //  $login = $this->requete->getSession()->getAttribut("login");
-      //$vue->generer(array('nbProduits' => $nbProduits, 'nbCaracteristiques' => $nbCaracteristiques, 'login' => $login, 'produits' => $produits, 'caracteristiques' => $caract));
       $this->index();
       
     }
@@ -99,9 +85,6 @@ public function ajouter(){
 
     public function accueil() {
       $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
-    //  $vue = new Vue("Accueil");
-     // $vue->generer(array('produits' => $produits,'erreur'=> 'aucun'));
-     //$this->genererVue(array('produits' => $produits,'erreur'=> 'aucun'),"Accueil");
   }
   public function index(){
     $produits = $this->produit->getProduits();

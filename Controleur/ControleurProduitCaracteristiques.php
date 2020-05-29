@@ -40,6 +40,7 @@ class ControleurProduitCaracteristiques extends Controleur{
     
       }
 
+
       public function index(){
         $produits = $this->produit->getProduits();
         $caract = $this->caracteristique->getCaracts();

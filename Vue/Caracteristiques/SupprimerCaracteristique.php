@@ -1,5 +1,4 @@
 <?php $titre = 'Supprimer une caractéristique'; ?>
-    <body>
     <div class="principal">
         <form action="Caracteristiques/supprimer/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
 

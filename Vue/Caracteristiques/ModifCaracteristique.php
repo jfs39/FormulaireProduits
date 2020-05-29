@@ -5,7 +5,7 @@
             text-align:center;
         }
     </style>
-    <body>
+
   <!--  &PRODUCT_ID=<?=$caract['ID_CARACTERISTIQUE']?>-->
     <form action="Caracteristiques/modifier/<?=$caract['ID_CARACTERISTIQUE']?>" method="post">
         <div class="principal">
@@ -27,4 +27,4 @@
             </p>
             </div>
         </form>
-    </body>
+
